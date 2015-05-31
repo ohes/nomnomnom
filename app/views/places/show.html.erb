@@ -32,6 +32,15 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 <% end %>
 
+<h1>Photos</h1>
+
+<% @place.photos.each do |photo| %>
+  <div class="col-xs-6 show-image">
+      <b><%= image_tag photo.picture %></b>
+        <%= photo.caption %>
+  </div>
+<% end %>
+
 <br />
 	<div class="pull-right">
 		<% if current_user && current_user == @place.user %>
@@ -77,6 +86,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 <%= simple_form_for @photo, :url => '#' do |f| %>
   <%= f.input :caption %>
+  <%= f.input :picture %>
   <%= f.submit "Add a Photo", :class => 'btn btn-primary' %>
 <% end %>
 
