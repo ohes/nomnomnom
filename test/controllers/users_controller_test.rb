@@ -5,7 +5,6 @@ class UsersControllerTest < ActionController::TestCase
 		user = FactoryGirl.create(:user)
 		sign_in user
 		get :show, :id => user.id
-		puts "hi #{user.id}"
 		assert_response :success
 	end
 
